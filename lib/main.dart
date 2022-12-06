@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:securityproject/choose_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,58 +11,61 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Security Project',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 7;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text('WELCOME'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+          child: Column(
+        children: [
+          Container(
+            height: 50,
+          ),
+          SizedBox(
+              height: 200, width: 200, child: Image.asset('assets/aca.png')),
+          Container(
+            height: 50,
+          ),
+          Container(
+            height: 50,
+          ),
+          SizedBox(
+            width: 150,
+            height: 40,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ChoosePage()),
+                  );
+                },
+                child: const Text('LOGIN')),
+          ),
+          Container(
+            height: 50,
+          ),
+        ],
+      )),
     );
   }
 }
