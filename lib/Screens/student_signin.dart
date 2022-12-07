@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:securityproject/DatabaseServices/auth.dart';
@@ -33,6 +34,16 @@ class _StudentSigninState extends State<StudentSignin> {
       });
       return signedIn;
     }
+  }
+
+  Future<bool> userExist() async {
+    String? id = Auth().currentUser!.uid;
+    var collection = FirebaseFirestore.instance.collection('Student');
+    var docSnapshot = await collection.doc(id).get();
+    if (docSnapshot.exists) {
+      return true;
+    }
+    return false;
   }
 
   @override
@@ -114,11 +125,17 @@ class _StudentSigninState extends State<StudentSignin> {
                               loading = false;
                             });
                             if (signedIn) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Home()),
-                              );
+                              if (await userExist())
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Home()),
+                                );
+                              else {
+                                setState(() {
+                                  error = "User does not exist";
+                                });
+                              }
                             }
                           },
                           child: const Text("Log in")),
