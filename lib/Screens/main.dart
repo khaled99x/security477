@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:securityproject/choose_page.dart';
+import 'package:securityproject/Screens/choose_page.dart';
 
 void main() {
   runApp(const MyApp());

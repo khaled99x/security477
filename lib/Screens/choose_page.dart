@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:securityproject/principal_signin.dart';
-import 'package:securityproject/student_signin.dart';
-import 'package:securityproject/teacher_signin.dart';
+import 'package:securityproject/Screens/principal_signin.dart';
+import 'package:securityproject/Screens/student_signin.dart';
+import 'package:securityproject/Screens/teacher_signin.dart';
 
 class ChoosePage extends StatefulWidget {
   const ChoosePage({super.key});
