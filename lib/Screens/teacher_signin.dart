@@ -79,6 +79,8 @@ class _TeacherSigninState extends State<TeacherSignin> {
                       height: 20,
                     ),
                     TextFormField(
+                      enableSuggestions: false,
+                      autocorrect: false,
                       controller: _controllerEmail,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),

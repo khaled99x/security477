@@ -79,6 +79,8 @@ class _PrincipalSigninState extends State<PrincipalSignin> {
                       height: 20,
                     ),
                     TextFormField(
+                      enableSuggestions: false,
+                      autocorrect: false,
                       controller: _controllerEmail,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
