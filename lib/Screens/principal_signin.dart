@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:securityproject/DatabaseServices/auth.dart';
-import 'package:securityproject/Screens/Home.dart';
+import 'package:securityproject/Screens/principal_home.dart';
 
 class PrincipalSignin extends StatefulWidget {
   const PrincipalSignin({super.key});
@@ -131,7 +131,8 @@ class _PrincipalSigninState extends State<PrincipalSignin> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const Home()),
+                                      builder: (context) =>
+                                          const PrincipalHome()),
                                 );
                               else {
                                 setState(() {

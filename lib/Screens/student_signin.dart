@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:securityproject/DatabaseServices/auth.dart';
-import 'package:securityproject/Screens/Home.dart';
+import 'package:securityproject/Screens/principal_home.dart';
+import 'package:securityproject/Screens/student_home.dart';
 
 class StudentSignin extends StatefulWidget {
   const StudentSignin({super.key});
@@ -127,13 +128,15 @@ class _StudentSigninState extends State<StudentSignin> {
                               loading = false;
                             });
                             if (signedIn) {
-                              if (await userExist())
+                              if (await userExist()) {
+                                // ignore: use_build_context_synchronously
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const Home()),
+                                      builder: (context) =>
+                                          const StudentHome()),
                                 );
-                              else {
+                              } else {
                                 setState(() {
                                   error = "User does not exist";
                                 });

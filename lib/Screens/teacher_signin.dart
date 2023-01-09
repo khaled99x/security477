@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:securityproject/DatabaseServices/auth.dart';
-import 'package:securityproject/Screens/Home.dart';
+import 'package:securityproject/Screens/principal_home.dart';
+import 'package:securityproject/Screens/teacher_home.dart';
 
 class TeacherSignin extends StatefulWidget {
   const TeacherSignin({super.key});
@@ -131,7 +132,8 @@ class _TeacherSigninState extends State<TeacherSignin> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const Home()),
+                                      builder: (context) =>
+                                          const TeacherHome()),
                                 );
                               else {
                                 setState(() {
